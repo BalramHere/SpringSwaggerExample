@@ -19,6 +19,8 @@ pipeline {
             steps {
                 sh 'make publish'
             }
+        }
+    }
            post {
                 // If Maven was able to run the tests, even if some of the test
                 // failed, record the test results and archive the jar file.
@@ -26,5 +28,4 @@ pipeline {
                     emailext body :'Summary of your pipeline, Success !!!!', subject : 'PipelineStatus', to: 'bnenavath@evoketechnologies.com'
                 }
         }
-    }
 }
